@@ -19,6 +19,7 @@ CREATE TABLE productos (
   name VARCHAR(250) NOT NULL,
   dire VARCHAR(250) NOT NULL,
   cost DOUBLE,
+  description VARCHAR(1000) NOT NULL,
   mat_id BIGINT,
   typ_id BIGINT
 

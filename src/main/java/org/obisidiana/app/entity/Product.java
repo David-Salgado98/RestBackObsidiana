@@ -20,6 +20,7 @@ public class Product {
     private String name;
     private String dire;
     private Double cost;
+    private String description;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mat_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
