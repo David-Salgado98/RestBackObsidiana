@@ -16,6 +16,7 @@ delete from tipos;
 INSERT INTO tipos (name) VALUES ('cruda');--1
 INSERT INTO tipos (name) VALUES ('joyeria');--2
 
+
 delete from productos;
 INSERT INTO productos (name,dire,cost,mat_id,typ_id,description)
 VALUES ( 'Obsidiana arcoiris','https://res.cloudinary.com/dzham2sp8/image/upload/v1676394466/filtrar/52597205698_27f611c3e9_k_s1onxv.jpg',199.99,4,1,'Hermosa obsidiana arcoirirs');
@@ -64,3 +65,6 @@ VALUES ( 'Dije de Agata Azul','https://res.cloudinary.com/dzham2sp8/image/upload
 
 INSERT INTO productos (name,dire,cost,mat_id,typ_id, description)
 VALUES ( 'Anillo de Agata','https://res.cloudinary.com/dzham2sp8/image/upload/v1676394415/filtrar/agate-665285_1920-removebg-preview_gzbamd.jpg',199.99,1,2,'Hermosa obsidiana arcoirirs');
+
+delete from clientes;
+INSERT INTO clientes (username,password,email,confirm_id) VALUES ('david','$2a$10$eqBzI0szzBh/2Xo0wPEm2uew/dQN5iw5A84pk0XICiEqdNaY/boaO','david@correo.com',1);--1

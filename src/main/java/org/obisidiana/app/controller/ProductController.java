@@ -9,6 +9,7 @@ import org.obisidiana.app.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RestController
-
+@CrossOrigin(origins="*")
 //@RequestMapping("/pages")
 public class ProductController {
     @Autowired
@@ -37,10 +38,15 @@ public class ProductController {
         return "/index";
     }
 
-
     @RequestMapping(value = "pages/aboutus" ,method = RequestMethod.GET)
     public String aboutus(){
         return "pages/aboutus";
+    }
+
+    @GetMapping("pages/detalleProducto")
+    public ResponseEntity<Product> procesar(@RequestParam Long id)
+    {
+        return ResponseEntity.ok(productService.getProduct(id));
     }
 
     @RequestMapping(value = "pages/catalogo" ,method = RequestMethod.GET)
@@ -58,6 +64,8 @@ public class ProductController {
         return "pages/findYourRock";
     }
 
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @RequestMapping(value = "pages/filtrar" ,method = RequestMethod.GET)
     public ResponseEntity<List<Product>> filtrar(){
         Filter filter = new Filter();

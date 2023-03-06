@@ -12,6 +12,16 @@ CREATE TABLE tipos (
   name VARCHAR(250) NOT NULL
 );
 
+DROP TABLE IF EXISTS clientes;
+
+CREATE TABLE clientes (
+  id BIGINT AUTO_INCREMENT  PRIMARY KEY,
+  username VARCHAR(100) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  email VARCHAR(250) NOT NULL,
+  confirm_id BIGINT
+);
+
 DROP TABLE IF EXISTS productos;
 
 CREATE TABLE productos (
